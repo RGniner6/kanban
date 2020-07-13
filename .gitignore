@@ -16,6 +16,8 @@ speed-measure-plugin*.json
 
 # IDEs and editors
 /.idea
+.idea/*
+*.iml
 .project
 .classpath
 .c9/
