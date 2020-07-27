@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "kanban-d68ed": {
+      "hosting": {
+        "kanban": [
+          "kanban-d68ed"
+        ]
+      }
+    }
+  }
+}
