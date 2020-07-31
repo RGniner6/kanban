@@ -8,6 +8,11 @@ const routes: Routes = [
   { path: '', component: HomePageComponent, canActivate: [AuthGuard] },
   {
     path: 'login', loadChildren: () => import('./user/user.module').then( m => m.UserModule)
+  },
+  {
+    path: '',
+    loadChildren: () => import('./kanban/kanban.module').then(m => m.KanbanModule),
+    canActivate: [AuthGuard]
   }
 ];
 
