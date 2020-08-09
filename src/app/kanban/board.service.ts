@@ -47,6 +47,16 @@ export class BoardService {
   }
 
   /**
+   * Updates the tasks on board
+   */
+  updateTasks(boardId: string, tasks: Task[]) {
+    return this.db
+      .collection('boards')
+      .doc(boardId)
+      .update({ tasks });
+  }
+
+  /**
    * Removes a specific task from the board
    */
   removeTask(boardId: string, task: Task) {
@@ -64,6 +74,7 @@ export class BoardService {
     return this.afAuth.authState.pipe(
       switchMap(user => {
         if (user) {
+          console.log(user.uid);
           return this.db
             .collection<Board>('boards', ref =>
               ref.where('uid', '==', user.uid).orderBy('priority')
