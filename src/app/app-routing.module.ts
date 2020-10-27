@@ -5,7 +5,7 @@ import {AuthGuard} from "./user/auth.guard";
 
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent, canActivate: [AuthGuard] },
+  { path: '', redirectTo: 'kanban', pathMatch: 'full' },
   {
     path: 'login', loadChildren: () => import('./user/user.module').then( m => m.UserModule)
   },

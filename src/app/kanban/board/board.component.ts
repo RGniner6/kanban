@@ -33,17 +33,22 @@ export class BoardComponent{
 
     dialogRef.afterClosed().subscribe( result => {
       if (result) {
-        if (result.isNew) {
-          this.boardService.updateTasks(this.board.id,
-            [...this.board.tasks, result.task]
-          )};
-      } else {
-        const update = this.board.tasks;
         console.log(result);
-        console.log(`Task index: ${idx}`);
-        update.splice(result.idx, 1, result.task);
-        this.boardService.updateTasks(this.board.id, this.board.tasks);
-      }
+        if (result.isNew) {
+          if (result.isNew) {
+            this.boardService.updateTasks(this.board.id,
+              [...this.board.tasks, result.task]
+            );
+          }
+        } else {
+          console.log("Updating task...")
+          const update = this.board.tasks;
+          console.log(result);
+          console.log(`Task index: ${idx}`);
+          update.splice(result.idx, 1, result.task);
+          this.boardService.updateTasks(this.board.id, this.board.tasks);
+        }
+    }
     })
   }
 
